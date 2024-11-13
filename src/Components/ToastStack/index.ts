@@ -1,3 +1,3 @@
-import ToastStack from "./ToastStack";
+import ToastStack from "./ToastStack"
 
 export default ToastStack

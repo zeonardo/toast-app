@@ -29,16 +29,14 @@ const ToastManager: React.FC = () => {
    */
   const groupedToasts = useMemo(() => {
     return toasts.reduce<Record<string, ToastConfigProps[]>>((groups, toast) => {
-      const position = toast.position;
+      const position = toast.position
       if (!groups[position]) {
-        groups[position] = [];
+        groups[position] = []
       }
-      groups[position].push(toast);
-      return groups;
-    }, {});
-  }, [toasts]);
-
-  console.log(`>>>>`, groupedToasts)
+      groups[position].push(toast)
+      return groups
+    }, {})
+  }, [toasts])
 
   return (
     <div className="toast-manager">

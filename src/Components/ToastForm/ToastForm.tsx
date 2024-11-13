@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { ToastIcons, ToastPositionsX, ToastPositionsY } from '../../constants';
-import { ToastConfigProps } from '../Toast/Toast';
-import { debounce } from '../../utils';
-import styles from './styles';
-import { getPositionOptions } from './utils';
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { ToastIcons, ToastPositionsX, ToastPositionsY } from '../../constants'
+import { ToastConfigProps } from '../Toast/Toast'
+import { debounce } from '../../utils'
+import styles from './styles'
+import { getPositionOptions } from './utils'
 
 export type ToastFormProps = {
-  onAdd?: (toast: ToastConfigProps) => void;
+  onAdd?: (toast: ToastConfigProps) => void
 }
 
 const ToastForm: React.FC<ToastFormProps> = ({ onAdd }) => {
@@ -33,7 +33,6 @@ const ToastForm: React.FC<ToastFormProps> = ({ onAdd }) => {
   }
 
   const onChangeIcon = (event: React.SyntheticEvent<HTMLSelectElement>) => {
-    console.log(`>>>>>> icon changed`, event.currentTarget.value)
     setIcon(event.currentTarget.value)
   }
 
