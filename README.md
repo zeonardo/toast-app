@@ -2,7 +2,7 @@
 # Leonardo Lima: Toasts
 
   
-![Expected screen output](https://github.com/zeonardo/tast-app/blob/master/src/assets/toasts.png)
+![Expected screen output](https://github.com/zeonardo/toast-app/blob/master/src/assets/toasts.png)
 
 
 ## Applications and repositories
