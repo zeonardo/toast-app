@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ToastManager from './Components/ToastManager';
 
 function App() {
+  // some optional theme
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const theme = 'dark:text-white dark:bg-gray-900'
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App ">
+      <h1 className='mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl'>
+        Toasts
+      </h1>
+      <h2>Click on the Show Toasts button to show toasts</h2>
+      <div className="h-[calc(100vh-6.5rem)] w-screen flex justify-center items-center">
+        <ToastManager />
+      </div>
     </div>
   );
 }
