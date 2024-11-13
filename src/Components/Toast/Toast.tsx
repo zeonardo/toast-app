@@ -41,6 +41,14 @@ const Toast: React.FC<ToastConfigProps> = ({ id, title, icon, duration, onClose 
       <span className='toast-icon inline-block text-2xl'>{ToastIcons[icon as keyof typeof ToastIcons]}</span>
       <span className='toast-title'>{title}</span>
       <button onClick={() => onClose(id)} className='toast-close text-2xl'>✖️</button>
+      {duration && (
+        <div
+          className="toast-countdown w-full absolute bottom-0 left-0 h-1 bg-current transition-all"
+          style={{
+            animation: `countdown ${duration}ms linear forwards`,
+          }}
+        ></div>
+      )}
     </div>
   )
 }

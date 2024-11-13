@@ -9,13 +9,24 @@ export type ToastFormProps = {
   onAdd?: (toast: ToastConfigProps) => void
 }
 
+const formDefaults = {
+  title: '',
+  icon: 'error',
+  positionY: ToastPositionsY.top,
+  positionX: ToastPositionsX.left,
+  duration: "",
+}
+
 const ToastForm: React.FC<ToastFormProps> = ({ onAdd }) => {
 
-  const [title, setTitle] = useState<string>("")
-  const [debouncedTitle, setDebouncedTitle] = useState<string>("")
-  const [icon, setIcon] = useState<string>(ToastIcons.error)
-  const [positionY, setPositionY] = useState<ToastPositionsY>(ToastPositionsY.bottom)
-  const [positionX, setPositionX] = useState<ToastPositionsX>(ToastPositionsX.left)
+  const [title, setTitle] = useState<string>(formDefaults.title)
+  const [debouncedTitle, setDebouncedTitle] = useState<string>(formDefaults.title)
+  const [icon, setIcon] = useState<string>(formDefaults.icon)
+  const [positionY, setPositionY] = useState<ToastPositionsY>(formDefaults.positionY)
+  const [positionX, setPositionX] = useState<ToastPositionsX>(formDefaults.positionX)
+  const [duration, setDuration] = useState<string>(formDefaults.duration)
+  
+  const durations = Array.from({ length: 10 }, (_, i) => (i + 1) * 1000)
 
   const debouncedSetTile = useRef(debounce((value: string) => {
     setDebouncedTitle(value)
@@ -36,16 +47,29 @@ const ToastForm: React.FC<ToastFormProps> = ({ onAdd }) => {
     setIcon(event.currentTarget.value)
   }
 
+  const onChangeDuration = (event: React.SyntheticEvent<HTMLSelectElement>) => {
+    setDuration(event.currentTarget.value)
+  }
+
+  const resetForm = () => {
+    setTitle(formDefaults.title)
+    setIcon(formDefaults.icon)
+    setPositionY(formDefaults.positionY)
+    setPositionX(formDefaults.positionX)
+    setDuration(formDefaults.duration)
+  }
+
   const onSubmit = useCallback((event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault()
     onAdd?.({
       id: Date.now(),
       title: debouncedTitle,
       icon,
-      position: `${positionY}-${positionX}`
+      position: `${positionY}-${positionX}`,
+      duration: duration ? Number(duration) : undefined,
     })
-    setTitle("")
-  }, [debouncedTitle, icon, positionY, positionX, onAdd])
+    resetForm()
+  }, [debouncedTitle, icon, positionY, positionX, duration, onAdd])
 
   useEffect(() => debouncedSetTile.current(title), [title])
 
@@ -95,9 +119,27 @@ const ToastForm: React.FC<ToastFormProps> = ({ onAdd }) => {
               onChange={onChangeIcon}
               className={styles.select}
             >
-              {Object.entries(ToastIcons).map((icon: string[]) => (
-                <option key={icon[0]} value={icon[0]} title={icon[0]}>{icon[1]}</option>
+              {Object.entries(ToastIcons).map(([key, label]) => (
+                <option key={key} value={key} title={key}>{label}</option>
               ))}
+            </select>
+          </label>
+          <label className={styles.label}>
+            <span className={styles.title}>
+              Duration
+            </span>
+            <select
+              onChange={onChangeDuration}
+              className={styles.select}
+              value={duration}
+            >
+              <option value="">∞</option>
+              {durations.map((duration, index) => {
+                const label = `${duration / 1000} second${!index ? '' : 's'}`
+                return (
+                  <option key={duration} value={duration} title={label}>{label}</option>
+                )
+              })}
             </select>
           </label>
         </div>

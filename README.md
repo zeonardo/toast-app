@@ -25,7 +25,7 @@
 
 ### Bonus Tasks
 
-7. ⏳ Take in a duration parameter, after the specific duration has passed, the notification should be removed automatically.
+7. ✅ Take in a duration parameter, after the specific duration has passed, the notification should be removed automatically.
 
 
 ### Extra Miles
