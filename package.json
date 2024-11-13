@@ -1,7 +1,25 @@
 {
   "name": "toast-app",
   "version": "0.1.0",
-  "homepage": "https://<your-github-username>.github.io/toast-app",
+  "description": "A simple toast demo",
+  "homepage": "https://zeonardo.github.io/toast-app",
+  "license": "MIT",
+  "main": "./src/index.tsx",
+  "author": {
+    "name": "Luiz Leonardo Lima",
+    "email": "zeonardo@gmail.com"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "component",
+    "ui",
+    "tailwind",
+    "toast",
+    "notification",
+    "alert",
+    "wai"
+  ],
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
