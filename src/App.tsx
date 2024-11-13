@@ -10,7 +10,7 @@ function App() {
       <h1 className='mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl'>
         Toasts
       </h1>
-      <h2>Click on the Show Toasts button to show toasts</h2>
+      <h2>Add a title and click on the Show Toast button to show toasts</h2>
       <div className="h-[calc(100vh-6.5rem)] w-screen flex justify-center items-center">
         <ToastManager />
       </div>
