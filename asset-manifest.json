@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/toast-app/static/css/main.74fbe401.css",
-    "main.js": "/toast-app/static/js/main.9e67738d.js",
+    "main.js": "/toast-app/static/js/main.6b6122d1.js",
     "static/js/453.dfb6669c.chunk.js": "/toast-app/static/js/453.dfb6669c.chunk.js",
     "index.html": "/toast-app/index.html",
     "main.74fbe401.css.map": "/toast-app/static/css/main.74fbe401.css.map",
-    "main.9e67738d.js.map": "/toast-app/static/js/main.9e67738d.js.map",
+    "main.6b6122d1.js.map": "/toast-app/static/js/main.6b6122d1.js.map",
     "453.dfb6669c.chunk.js.map": "/toast-app/static/js/453.dfb6669c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.74fbe401.css",
-    "static/js/main.9e67738d.js"
+    "static/js/main.6b6122d1.js"
   ]
 }
